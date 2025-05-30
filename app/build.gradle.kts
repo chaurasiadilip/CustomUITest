@@ -42,7 +42,7 @@ android {
 
 
 dependencies {
-    implementation("com.cex:mycustombutton:1.0.0")
+    implementation(project(":mylibrary"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
