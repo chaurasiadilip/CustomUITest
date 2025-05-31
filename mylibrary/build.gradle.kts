@@ -59,22 +59,3 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
 
 }
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            groupId = "com.cex"
-            artifactId = "mycustombutton"
-            version = "1.0.0"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            url = uri("${rootProject.buildDir}/repo")
-        }
-    }
-}
