@@ -28,6 +28,12 @@ android {
         kotlinCompilerExtensionVersion = "1.5.12" // ✅ Make sure this matches Compose version (not Kotlin)
     }
 
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -58,4 +64,17 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.ui:ui-tooling-preview")
 
+}
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.cex"
+            artifactId = "mycustombutton"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
